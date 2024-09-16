@@ -6,9 +6,9 @@ app = FastAPI()
 
 with open("books.json", "r") as FileBook:
     BookJson = json.load(FileBook)
-
-with open("textbook.json", "r") as TextBook:
-    TextJson = json.load(TextBook)
+if 0:
+    with open("textbook.json", "r") as TextBook:
+        TextJson = json.load(TextBook)
 
 #FileBook = open('books.json')
 #BookJson = json.load(FileBook)
@@ -22,7 +22,7 @@ class Post(BaseModel):
     pages: int
     title: str
     year: int
-
+'''
 TestBook = {
     "author": "Butterbear",
     "country": "Thailand",
@@ -33,7 +33,7 @@ TestBook = {
     "title": "NoeyNoi School",
     "year": 1993
 }
-
+'''
 #Get all books
 @app.get("/books")
 def get_all_book():
@@ -44,12 +44,9 @@ def get_all_book():
 @app.post("/books", status_code =status.HTTP_201_CREATED)
 def create_post(post: Post):
     post_dict = post.dict()
-    print(post_dict)
-    print(type(post_dict))
-#   post_dict["pages"] = len(BookJson) + 1
     BookJson.append(post_dict)
-    print(BookJson)
-#    BookJson.update(post_dict)
+    with open("books.json", "w") as FileBook:
+        json.dump(BookJson, FileBook, indent=4)   
     return{"Books": BookJson}
     
 
@@ -61,7 +58,7 @@ if 0:
         json.dump(BookJson, FileBook, indent=4)
         #FileBook.write(json.dump(BookJson, FileBook, indent=4))
 
-if 1:
+if 0:
     TextJson.append(TestBook)
     with open("textbook.json", "w") as TextBook:
         json.dump(TextJson, TextBook, indent=4)
