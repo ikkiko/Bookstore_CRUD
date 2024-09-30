@@ -84,7 +84,7 @@ def update_post_by_id(post_year: int, post: Post):
     if book_index is None:
         raise HTTPException(status_code = status.HTTP_404_NOT_FOUND, detail = f"Book with year {post_year} not Found")
     post_dict = post.dict()
-    post_dict["id"] = post_year
+    post_dict["year"] = post_year
     BookJson[book_index] = post_dict
     return {"message": f"Book with year {post_year} has been updated"}
 
@@ -93,5 +93,3 @@ def find_index_year(year):
         if book["year"] == year:
             return index
     return None 
-
-
