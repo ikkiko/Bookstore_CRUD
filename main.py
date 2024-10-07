@@ -92,4 +92,4 @@ def find_index_year(year):
     for index, book in enumerate(BookJson):
         if book["year"] == year:
             return index
-    return None 
+    return None
