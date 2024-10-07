@@ -1,13 +1,6 @@
 import mysql.connector
 
-myConnection = mysql.connector.connect(
-    username = "kik",
-    password = "AVNS_ClIdReUOjn0zYB-qdXt",
-    host = "db-mysql-sgp1-67311-do-user-11401563-0.c.db.ondigitalocean.com",
-    port = 25060,
-    database = "kikDB",
-    ssl_ca = "kik-ca.crt"
-    )
+myConnection = mysql.connector.connect()
 
 #print(myConnection)
 
