@@ -23,5 +23,5 @@ myCursor.execute(sqlInsertCommand, val)
 myConnection.commit()
 print(myCursor.rowcount, "record inserted")
 
-json > list > tuple > loop list
+#json > list > tuple > loop list
 
